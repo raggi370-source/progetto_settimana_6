@@ -10,39 +10,50 @@
 </head>
 
 <body>
+  <!--  BOTTONE notte -->
+  <div class="position-absolute z-3">
+    <button class="tema-toggle  d-flex align-items-center justify-content-center">
+      <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" />
+      </svg>
+    </button>
+  </div>
 
-  
-    <!-- Navbar Bootstrap (navbar-expand-md, sticky in cima) -->
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-md navbar-dark inizio ">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bold" href="#">Atelier</a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu"
-            aria-controls="nav-menu" aria-expanded="false" aria-label="Apri menu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
 
-          <div class="collapse navbar-collapse" id="nav-menu">
-            <ul class="navbar-nav ms-auto"><!--margin left = ms-auto -->
-              <li class="nav-item">
-                <a class="nav-link" href="#studio">Studio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#servizi">Servizi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contatti">Contatti</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Lavori">Lavori</a>
-              </li>
-            </ul>
-          </div>
+
+  <!-- Navbar Bootstrap (navbar-expand-md, sticky in cima) -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-md navbar-dark inizio ">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">Atelier</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu"
+          aria-controls="nav-menu" aria-expanded="false" aria-label="Apri menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-menu">
+          <ul class="navbar-nav ms-auto"><!--margin left = ms-auto -->
+            <li class="nav-item">
+              <a class="nav-link" href="#studio">Studio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#servizi">Servizi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contatti">Contatti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Lavori">Lavori</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
- 
+      </div>
+    </nav>
+  </header>
+
 
 
 
@@ -61,24 +72,25 @@
 
 
 
-
-<section id="Lavori" class="py-5">
-  <div class="container">
-    <h2>Sezione Lavori</h2>
-
-    <div class="mb-4">
-      <h3>Filtri categoria</h3>
-      <div id="filtri-lavori" class="d-flex flex-wrap gap-2">
-        <button class="button_filter" data-categoria="tutti">Tutti</button>
-        <button class="button_filter" data-categoria="residenziale">Residenziale</button>
-        <button class="button_filter" data-categoria="interni">Interni</button>
-        <button class="button_filter" data-categoria="commerciale">Commerciale</button>
+  <!-- Sezione Lavori-->
+  <section id="Lavori" class="py-5">
+    <div>
+      <div class="container text-center">
+        <h2 >Sezione Lavori</h2>
+        <h4>Filtri categoria</h4>
       </div>
-    </div>
+      <div class="mb-4">
+        <div id="filtri-lavori" class="d-flex flex-wrap gap-2">
+          <button class="button_filter" data-categoria="tutti">Tutti</button>
+          <button class="button_filter" data-categoria="residenziale">Residenziale</button>
+          <button class="button_filter" data-categoria="interni">Interni</button>
+          <button class="button_filter" data-categoria="commerciale">Commerciale</button>
+        </div>
+      </div>
 
-    <div id="griglia-lavori" class="row g-4"></div>
-  </div>
-</section>
+      <div id="griglia-lavori" class="row g-4"></div>
+    </div>
+  </section>
 
 
 
@@ -112,7 +124,7 @@
 
           <div class="col-12 col-md-4">
             <article class="service-card text-center">
-              <div class="service-icon" aria-hidden="true">📐</div>
+              <div class="service-icon" aria-hidden="true">🧱</div>
               <h3>Consulenza</h3>
               <p>Un supporto dedicato per dare forma alle tue idee e scegliere le soluzioni più adatte.</p>
             </article>
@@ -122,17 +134,17 @@
     </section>
   </section>
 
-  <section id="contatti"  class="pt-5 pb-0">
+  <section id="contatti" class="pt-5 pb-0">
     <!-- Form contatti Bootstrap, larghezza limitata e centrata -->
 
     <div clss="container ">
       <div class="row bg-contatti">
         <div class="col-12 col-md-8 col-lg-8 mx-auto ">
-         <div class="text-center">
-          <h2>Contatti</h2>
-          <p>compila il Form ,ti rispondiamo entro 48 ore.</p>
+          <div class="text-center">
+            <h2>Contatti</h2>
+            <p>compila il Form ,ti rispondiamo entro 48 ore.</p>
 
-         </div>
+          </div>
 
           <form>
             <div class="mb-3">
@@ -158,10 +170,10 @@
               </select>
 
               <div class="mb-3">
-              <label for="none" class="form-label">Mesaggio</label>
-              <input type="text" class="form-control" id="input_message">
+                <label for="none" class="form-label">Mesaggio</label>
+                <input type="text" class="form-control" id="input_message">
 
-            </div>
+              </div>
             </div>
             <button class="buttom_from">Invia</button>
           </form>
@@ -177,39 +189,39 @@
 
   </section>
 
- 
 
 
 
 
-    <!-- 3 colonne: Atelier+indirizzo / Link / Contatti. Copyright in fondo -->
+
+  <!-- 3 colonne: Atelier+indirizzo / Link / Contatti. Copyright in fondo -->
   <footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-4 footer_m">
-        <h5>Atelier</h5>
-        <p>Studio di architettura<br>Via dei Pioppi 12, Milano</p>
-      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4 footer_m">
+          <h5>Atelier</h5>
+          <p>Studio di architettura<br>Via dei Pioppi 12, Milano</p>
+        </div>
 
-      <div class="col-12 col-md-4 footer_m">
-        <h5>Link</h5>
-        <ul class="list-unstyled">
-          <li><a class="text-decoration-none" href="#studio">Studio</a></li>
-          <li><a class="text-decoration-none" href="#servizi">Servizi</a></li>
-          <li><a class="text-decoration-none" href="#contatti">Contatti</a></li>
-        </ul>
-      </div>
+        <div class="col-12 col-md-4 footer_m">
+          <h5>Link</h5>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none" href="#studio">Studio</a></li>
+            <li><a class="text-decoration-none" href="#servizi">Servizi</a></li>
+            <li><a class="text-decoration-none" href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
 
-      <div class="col-12 col-md-4 footer_m">
-        <h5>Contatti</h5>
-        <ul class="list-unstyled">
-          <li><a class="text-decoration-none" href="mailto:info@atelier.example">info@atelier.example</a></li>
-          <li><a class="text-decoration-none" href="tel:+390200001111">+39 02 0000 1111</a></li>
-        </ul>
+        <div class="col-12 col-md-4 footer_m">
+          <h5>Contatti</h5>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none" href="mailto:info@atelier.example">info@atelier.example</a></li>
+            <li><a class="text-decoration-none" href="tel:+390200001111">+39 02 0000 1111</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>

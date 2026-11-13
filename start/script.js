@@ -7,31 +7,37 @@ const lavori = [
     {
         titolo: "Casa nel verde",
         anno: 2024, categoria: "residenziale",
+        immagine:"../img/casa_nelverde.jpeg",
         
     },
     {
         titolo: "Appartamento luminoso",
         anno: 2023, categoria: "interni",
+        immagine:"../img/luminoso.jpg",
         
     },
     {
         titolo: "Studio creativo",
         anno: 2024, categoria: "commerciale",
+        immagine:"../img/studiocreativo.jpg",
         
     },
     {
         titolo: "Villa contemporanea",
         anno: 2022, categoria: "residenziale",
+        immagine:"../img/villa.jpeg",
         
     },
     {
         titolo: "Loft urbano",
         anno: 2023, categoria: "interni",
+        immagine:"../img/loft.jpg",
         
     },
     {
         titolo: "Boutique",
         anno: 2022, categoria: "commerciale",
+        immagine:"../img/boutique.jpg",
         
     }
 ];
@@ -50,18 +56,21 @@ function mostraLavori(categoria = "tutti") {
     }
 
     griglia.innerHTML = filtrati.map(lavoro => `
-    <div class="col-12 col-md-6 col-lg-4 card_lavori">
-      <article class="card h-100">
-        <div class="img_card" >
-        <img  class="card-img-top " >
-        <div>
-        <div class="card-body">
-          <h3 class="card-title">${lavoro.titolo}</h3>
-          <p class="card-text">${lavoro.anno} · ${lavoro.categoria}</p>
-        </div>
-      </article>
-    </div>
-  `).join("");
+  <div class="col-12 col-md-6 col-lg-4">
+    <article class="card card_lavori h-100">
+      <img
+        src="${lavoro.immagine}"
+        class="card-img-top"
+        alt="${lavoro.titolo}"
+      >
+      <div class="card-body">
+        <h3 class="card-title">${lavoro.titolo}</h3>
+        <p class="card-text">${lavoro.anno} · ${lavoro.categoria}</p>
+        <a  href="#" class="card-link">Scopri di più</a>
+      </div>
+    </article>
+  </div>
+`).join("");
 }
 
 filtri.addEventListener("click", event => {
@@ -72,3 +81,9 @@ filtri.addEventListener("click", event => {
 });
 
 mostraLavori();
+
+const Tema = document.querySelector(".tema-toggle");
+
+Tema.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
