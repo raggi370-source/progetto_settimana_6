@@ -136,15 +136,23 @@ body.dark {
 }
 
 .button_filter {
-  background-color: hsl(20, 30%, 35%);
-  color: #fff;
-  border: hsl(20, 30%, 27%);
+  border: none;
+  background-color: hsl(20, 30%, 27%);
   border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.button_filter:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+.button_filter {
+  margin-left: 8px;
 }
 
-.button_filter :hover {
-  background-color: white !important;
-  color: hsl(20, 30%, 35%);
+.button_filter:hover {
+  background-color: hsl(20, 30%, 35%);
 }
 
 .footer {
@@ -170,6 +178,48 @@ body.dark {
   .buttom_from {
     height: 30px;
   }
+}
+@media (min-width: 1400px) {
+  .tema-toggle {
+    top: 70px;
+  }
+}
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup.visibile {
+  display: flex;
+}
+
+.popup-contenuto {
+  background: white;
+  color: #222;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.pop.b {
+  border-radius: 20px;
+}
+
+.pop_b:hover {
+  background-color: rgb(93, 0, 0);
+}
+
+.pop_invia {
+  border: #222;
+  border-radius: 6px;
+}
+
+.pop_invia:hover {
+  background-color: green;
 }
 
 /*# sourceMappingURL=style.css.map */

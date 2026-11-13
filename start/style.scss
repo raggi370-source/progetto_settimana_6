@@ -9,6 +9,11 @@
         box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
     }
 }
+@mixin solo-su($bp) {
+  @media (min-width: $bp) {//$bd lascia la variabile e tipo let//
+    @content;
+  }
+}
 
 
 
@@ -144,15 +149,18 @@ body.dark{
     text-decoration:none;
 }
 .button_filter {
-    background-color: $SFONDO_PRINCIPALE;
-    color: #fff;
-    border: $BUTTON_HOVER;
+    border: none;
+    background-color: $BUTTON_HOVER;
     border-radius: 8px;
+    color: white;
+    @include card-elevata();
+   margin-left: 8px;
+    
 }
 
-.button_filter :hover {
-    background-color: white !important;
-    color: $SFONDO_PRINCIPALE;
+.button_filter:hover {
+    background-color: $brand-primary ;
+    
 }
 
 // === Stili custom delle sezioni (header sticky, hero, servizi, contatti, footer) ===
@@ -173,7 +181,7 @@ body.dark{
 }
 
 
-@media (min-width: 768px) {
+@include solo-su (768px) {
     .footer_m {
         margin-bottom: 0px;
     }
@@ -181,4 +189,44 @@ body.dark{
     .buttom_from {
         height: 30px;
     }
+}
+
+@include solo-su(1400px) {
+   .tema-toggle{
+        top:70px;
+   }
+}
+.popup {
+  display: none;
+    position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup.visibile {
+  display: flex;
+}
+
+.popup-contenuto {
+  background: white;
+  color: #222;
+  padding: 2rem;
+  border-radius: 8px;
+}
+.pop.b{
+    border-radius: 20px;
+}
+.pop_b:hover{
+    
+    background-color: rgb(93, 0, 0);
+}
+.pop_invia{
+    border: #222;
+    border-radius: 6px; 
+}
+.pop_invia:hover{
+    background-color: green;
 }
