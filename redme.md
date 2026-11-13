@@ -54,3 +54,13 @@ Aprire `start/index.html` con un server locale, per esempio l’estensione **Liv
 - **Modal card**
 - **bottone tema chiaro scuro**
 - **Mixin usato**
+
+
+
+## Modal card
+
+Le funzionalità del pop-up sono essenziali e intuitive. Per arricchire l'esperienza utente, ho implementato un aggiornamento dinamico dell'interfaccia: al clic sul pulsante "Invia", viene generata e visualizzata una lista che riporta in tempo reale il nome inserito nel campo di input.
+
+## Bottone tema chiaro/scuro
+
+Per il posizionamento del pulsante di cambio tema ho scelto di utilizzare position: relative (o un posizionamento sempre accessibile), con l'obiettivo di garantire all'utente il pieno controllo dell'aspetto visivo della pagina in qualsiasi momento della navigazione.

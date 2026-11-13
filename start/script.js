@@ -67,8 +67,9 @@ function mostraLavori(categoria = "tutti") {
         <h3 class="card-title">${lavoro.titolo}</h3>
         <p class="card-text">${lavoro.anno} · ${lavoro.categoria}</p>
         
-        <button type="button" class="btn btn-primary apri-popup">
-            Scopri di più
+        <button type="button" class="btn btn-dettagli apri-popup">
+         Scopri il progetto
+        <span aria-hidden="true">→</span>
         </button>
       </div>
     </article>
@@ -101,36 +102,59 @@ Tema.addEventListener("click", () => {
 document.body.insertAdjacentHTML("beforeend", `
   <div class="popup" id="popupLavoro">
     <div class="popup-contenuto">
-      <button type="button" class="chiudi-popup pop_b">X</button>
+      <button type="button" class="chiudi-popup ">X</button>
       <h2>Dettagli del lavoro</h2>
       <p>Qui puoi scrivere la descrizione del progetto.</p>
-      <form>
-      <div class="mb-3">
-              <label for="none" class="form-label">Chi cerca?</label>
-              <input type="text" class="form-control" id="input_name">
-            </div>
-            <button class="pop_invia">invia</button>
-            <ul class="avviso">
 
-            </ul>
-      </form>
+    <div class="d-flex flex-column gap-2">
+      <label for="input_posizione">Posizione?</label>
+        <input type="text" placeholder="Inserisci posizione" id="input_posizione">
+      </div>
+      <div class="d-flex flex-column gap-2">
+
+      <label for="input_namepop">Nome prenotazione?</label>
+        <input type="text" placeholder="Inserisci il tuo nome" id="input_namepop">
+      <button type="button" class="pop_invia">Invia</button></div>
+
+      <ul class="avviso"></ul>
     </div>
   </div>
 `);
 
+
+
+const popup_invia = document.querySelector(".pop_invia");
+const input_namepop = document.querySelector("#input_namepop");
+const avviso = document.querySelector(".avviso");
 const popup = document.querySelector("#popupLavoro");
+const chiudi_pop = document.querySelector(".chiudi-popup")
+
+
+
 griglia.addEventListener("click", event => {
   if (event.target.closest(".apri-popup")) {
     popup.classList.add("visibile");
   }
+});
 
-  if (event.target.closest(".chiudi-popup")) {
+chiudi_pop.addEventListener("click", () => {
+  popup.classList.remove("visibile");
+});
+
+popup.addEventListener("click", event => {
+  if (event.target === popup) {
     popup.classList.remove("visibile");
   }
 });
-const popup_invia = document.querySelector("pop_invia");
-popup_invia.addEventListener("click",()=>{
-    const lista = document.createElement("li")
-    
-    avviso.appendChild(lista)
-},2000);
+
+popup_invia.addEventListener("click", () => {
+    const lista = document.createElement("li");
+    lista.classList.add("pop_lista");
+    lista.textContent = `Grazie ${input_namepop.value}, abbiamo preso appuntamento`;
+    avviso.appendChild(lista);
+
+    setTimeout(() => {
+        avviso.innerHTML = "";
+        popup.classList.remove("visibile");
+    }, 1500);
+});

@@ -1,7 +1,7 @@
 // Atelier — Week Project Settimana VI
 // Definisci qui le tue variabili, mixin, override Bootstrap.
 @mixin card-elevata {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     &:hover {
@@ -15,6 +15,15 @@
   }
 }
 
+
+@media (max-width: 576px) {
+  .popup-contenuto {
+    padding: 2rem 1.25rem 1.5rem;
+    border-radius: 16px;
+  }
+}
+
+//p
 
 
 // === Variabili (definisci $brand-primary, $brand-secondary, $radius-base, ecc.) ===
@@ -93,7 +102,6 @@ body.dark{
     background: #fff;
     border: 1px solid #eee;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     font-size: 20px;
 }
 
@@ -148,19 +156,33 @@ body.dark{
 .card-link{
     text-decoration:none;
 }
-.button_filter {
-    border: none;
-    background-color: $BUTTON_HOVER;
-    border-radius: 8px;
-    color: white;
-    @include card-elevata();
-   margin-left: 8px;
-    
-}
 
-.button_filter:hover {
-    background-color: $brand-primary ;
-    
+.button_filter {
+  padding: 0.6rem 1rem;
+  border: 1px solid #d8cec8;
+  border-radius: 999px;
+  background-color: #fff;
+  color: $sfondo-nav;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+
+  &:hover {
+    border-color: $sfondo-nav;
+    background-color: $sfondo-nav;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(118, 84, 65, 0.3);
+    outline-offset: 3px;
+  }
 }
 
 // === Stili custom delle sezioni (header sticky, hero, servizi, contatti, footer) ===
@@ -181,6 +203,154 @@ body.dark{
 }
 
 
+//op hup per dio :3
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(25, 20, 18, 0.65);
+  backdrop-filter: blur(4px);
+
+  &.visibile {
+    display: flex;
+  }
+}
+
+.popup-contenuto {
+  position: relative;
+  width: min(100%, 460px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  border: 1px solid rgba(48, 35, 30, 0.12);
+  border-radius: 20px;
+  background: #fff;
+  color: #282321;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+
+  h2 {
+    margin: 0 2.5rem 0.5rem 0;
+    color: $sfondo-nav;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: #6b625e;
+    line-height: 1.6;
+  }
+
+  .d-flex {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    color: #403630;
+    font-weight: 600;
+  }
+}
+
+.chiudi-popup {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid #ded8d4;
+  border-radius: 50%;
+  background: #f7f5f3;
+  color: #403630;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+
+  &:hover {
+    border-color: $sfondo-nav;
+    background: $sfondo-nav;
+    color: #fff;
+  }
+}
+
+#input_posizione,
+#input_namepop {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #d6cfca;
+  border-radius: 9px;
+  background: #fff;
+  color: #282321;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+
+  &:focus {
+    border-color: $BUTTON_HOVER;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(118, 84, 65, 0.16);
+  }
+}
+
+.pop_invia {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid $sfondo-nav;
+  border-radius: 9px;
+  background: $sfondo-nav;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+
+  &:hover {
+    border-color: $BUTTON_HOVER;
+    background: $BUTTON_HOVER;
+    transform: translateY(-1px);
+  }
+}
+
+.avviso {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  &:not(:empty) {
+    padding: 0.75rem 1rem;
+    border: 1px solid #c8dfd0;
+    border-radius: 9px;
+    background: #edf7f0;
+    color: #24583a;
+  }
+}
+
+
+
+.btn-dettagli {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid $sfondo-nav;
+  border-radius: 8px;
+  background-color: $sfondo-nav;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 180ms ease, transform 180ms ease;
+
+  &:hover {
+    border-color: $BUTTON_HOVER;
+    background-color: $BUTTON_HOVER;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(118, 84, 65, 0.35);
+    outline-offset: 3px;
+  }
+}
 @include solo-su (768px) {
     .footer_m {
         margin-bottom: 0px;
@@ -195,38 +365,4 @@ body.dark{
    .tema-toggle{
         top:70px;
    }
-}
-.popup {
-  display: none;
-    position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.popup.visibile {
-  display: flex;
-}
-
-.popup-contenuto {
-  background: white;
-  color: #222;
-  padding: 2rem;
-  border-radius: 8px;
-}
-.pop.b{
-    border-radius: 20px;
-}
-.pop_b:hover{
-    
-    background-color: rgb(93, 0, 0);
-}
-.pop_invia{
-    border: #222;
-    border-radius: 6px; 
-}
-.pop_invia:hover{
-    background-color: green;
 }
